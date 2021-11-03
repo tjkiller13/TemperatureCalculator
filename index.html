@@ -11,7 +11,7 @@
 <body>
     <div class="">
         <div class="alert alert-danger alert-dismissible show" id="alert" role="alert">
-            <strong>Note! </strong><label>Temperature in Fahrenheit is required for calculating Temperature in Celsius</label>
+            <strong>Note! </strong><label>Number(temperature in Fahrenheit) is required for calculating Temperature in Celsius</label>
             <button id="close" type="button" class="btn-close" aria-label="Close"></button>
         </div>
     </div>
@@ -26,12 +26,12 @@
                 <h1 class="text-center">Temperature Calculator</h1>
             </div>
         </div>
-        <div class="row py-2 bg-dark text-white d-flex justify-content-center align-items-center">
+        <div class="row bg-dark text-white d-flex justify-content-center align-items-center">
             <div class="col-xl-3 d-flex justify-content-center">
-                <label class="col-form-label">Temperature in Fahrenheit:</label>
-              </div>
-              <div class="col-xl-2">
-                <input type="number" name="tempF" id="tempF" class="form-control form-number">
+                <div class="input-group my-3">
+                    <span class="input-group-text" id="basic-addon1">Temperature in Fahrenheit</span>
+                    <input type="number" id="tempF" class="form-control" placeholder="">
+                  </div>
               </div>
         </div>
         <div class="row py-4 d-flex justify-content-center bg-secondary">
