@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="">
+        <div class="alert alert-danger alert-dismissible show" id="alert" role="alert">
+            <strong>Note! </strong><label>Temperature in Fahrenheit is required for calculating Temperature in Celsius</label>
+            <button id="close" type="button" class="btn-close" aria-label="Close"></button>
+        </div>
+    </div>
+    <div class="container my-4">
+        <div class="row pb-2">
+            <div class="col-sm-12 d-flex justify-content-end">                    
+                    <button id="rfs" class="btn btn-outline-success btn-sm">&#8635;</button>
+            </div>
+        </div>
+        <div class="row py-5 bg-secondary text-white">
+            <div class="col-sm-12">
+                <h1 class="text-center">Temperature Calculator</h1>
+            </div>
+        </div>
+        <div class="row py-2 bg-dark text-white d-flex justify-content-center align-items-center">
+            <div class="col-xl-3 d-flex justify-content-center">
+                <label class="col-form-label">Temperature in Fahrenheit:</label>
+              </div>
+              <div class="col-xl-2">
+                <input type="number" name="tempF" id="tempF" class="form-control form-number">
+              </div>
+        </div>
+        <div class="row py-4 d-flex justify-content-center bg-secondary">
+            <div class="col-sm-3 d-flex justify-content-center">
+                <button id="btn" class="btn btn-light btn-outline-dark btn-lg">Submit</button>
+            </div>
+        </div>
+        <div class="row pt-3">
+            <div class="col-sm-12" role="alert">
+                <p class="text-center alert alert-success"><span id="insert"></span><span>&deg;C</span></p>
+            </div>
+        </div>
+        
+    
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+<script>
+    
+    $('#alert').hide()
+    let str;
+    let tempF;
+    $('p').hide()
+    let btn = $('#btn')
+
+    let funct1 = function(){
+            if (($('#tempF').val())=="" || ($('#tempF').val())=== undefined){
+                $('#alert').show()
+                $('p').hide()
+            }
+            else{
+                tempF = $('#tempF').val();
+                let tempC = (tempF-32)*(5/9);
+                str = "Your temperature is " + tempC
+                $('p').show(function(){
+                    $('#insert').text(str)
+                    
+                })
+            }
+        
+    }
+
+    let funct2 = function(){
+        $('#tempF').val("")
+        $('#insert').empty();
+        $('p').hide();
+        $('#alert').hide()
+        
+    }
+
+    let funct3 = function(){
+        $('#alert').hide()
+    }
+
+    btn.on('click', funct1)
+    $('#rfs').on('click', funct2)
+    $('#close').on('click', funct3)
+    
+
+</script>
+</html>
